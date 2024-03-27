@@ -1,12 +1,14 @@
 import React, { useRef } from 'react';
 import { IonPage, IonContent, IonCard, IonCardContent, IonInput, IonButton } from '@ionic/react';
+import { Link } from 'react-router-dom';
+import { registerUser } from '../auth/loginUser';
 
 const Signup = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:any) => {
     e.preventDefault();
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -45,7 +47,7 @@ const Signup = () => {
           </IonCardContent>
         </IonCard>
         <div className="ion-text-center mt-2">
-          Already have an account? Log In
+          Already have an account? <Link to='/home'>Login</Link>
         </div>
       </IonContent>
     </IonPage>
