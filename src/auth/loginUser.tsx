@@ -1,6 +1,6 @@
 // tänne tulee login logiikka
 import { signInWithEmailAndPassword } from "firebase/auth"
-import { auth } from "../Firebase"
+import { auth } from "../firebaseConfig"
 
 export async function loginUser(email:string, password:string) {
     try {
