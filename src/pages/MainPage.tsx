@@ -1,8 +1,13 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import {
+    IonContent,
+    IonHeader,
+    IonPage,
+    IonTitle,
+    IonToolbar,
+} from '@ionic/react';
 import React from 'react';
 
 const mainPage: React.FC = () => {
-
     return (
         <IonPage>
             <IonHeader>
@@ -10,9 +15,7 @@ const mainPage: React.FC = () => {
                     <IonTitle>Main Screen</IonTitle>
                 </IonToolbar>
             </IonHeader>
-            <IonContent className="ion-padding">
-                UI goes here...
-            </IonContent>
+            <IonContent className="ion-padding">UI goes here...</IonContent>
         </IonPage>
     );
 };
