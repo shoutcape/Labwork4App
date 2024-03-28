@@ -1,14 +1,15 @@
-
 // tänne tulee register logiikka
-import firebase from '../firebaseConfig'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../Firebase'
 
 
-export async function registerUser(username:string, password:string) {
-    const email = `${username}@gmail.com`
+export async function registerUser(email:string, password:string) {
     try {
-        const res = await firebase.auth().createUserWithEmailAndPassword(email,password)
-        console.log(res)
+        const res = await createUserWithEmailAndPassword( auth,email,password)
+        console.log("User registered", res);
+        return res;
     } catch(error) {
+        console.error("Failed to register user", error);
         throw error
     }
     

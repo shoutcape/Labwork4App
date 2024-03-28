@@ -1,10 +1,10 @@
 // tänne tulee login logiikka
-import firebase from "../firebaseConfig"
+import { signInWithEmailAndPassword } from "firebase/auth"
+import { auth } from "../Firebase"
 
-export async function loginUser(username:string, password:string) {
-    const email = `${username}@gmail.com`
+export async function loginUser(email:string, password:string) {
     try {
-        const res = await firebase.auth().signInWithEmailAndPassword(email,password)
+        const res = await signInWithEmailAndPassword(auth,email,password)
         console.log(res)
     } catch(error) {
         throw error
