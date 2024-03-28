@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import MainPage from './pages/MainPage';
 
-
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -28,24 +27,24 @@ import './theme/variables.css';
 setupIonicReact();
 
 const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home" >
-          <Home />
-        </Route>
-        <Route exact path="/signup" >
-          <SignUp />
-        </Route>
-        <Route exact path="/mainpage" >
-           <MainPage />
-         </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
+    <IonApp>
+        <IonReactRouter>
+            <IonRouterOutlet>
+                <Route exact path="/home">
+                    <Home />
+                </Route>
+                <Route exact path="/signup">
+                    <SignUp />
+                </Route>
+                <Route exact path="/mainpage">
+                    <MainPage />
+                </Route>
+                <Route exact path="/">
+                    <Redirect to="/home" />
+                </Route>
+            </IonRouterOutlet>
+        </IonReactRouter>
+    </IonApp>
 );
 
 export default App;
