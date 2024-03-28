@@ -1,18 +1,35 @@
-import React, { useRef } from 'react';
-import { IonPage, IonContent, IonCard, IonCardContent, IonInput, IonButton } from '@ionic/react';
+import React, { useState } from 'react';
+import { IonPage, IonContent, IonCard, IonCardContent, IonInput, IonButton, IonAlert } from '@ionic/react';
 import { Link } from 'react-router-dom';
-import { registerUser } from '../auth/loginUser';
+import { registerUser } from '../auth/registerUser';
 
-const Signup = () => {
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
+const Signup: React.FC = () => {
+  const [email,setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e:any) => {
-    e.preventDefault();
-    const emailRef = useRef();
-    const passwordRef = useRef();
-    const passwordConfirmRef = useRef();
+  const handleSignup = async () => {
+    try {
+      if (password !== passwordConfirm) {
+        setError('Passwords do not match');
+        return;
+      }
+
+      await registerUser(email, password);
+
+      setError('');
+      setPasswordConfirm('');
+      setPassword('')
+      setEmail('')
+
+      console.log('User created');
+    } catch (error: any) {
+      console.error('Error occurred during signup', error.message);
+      setError('Failed to create an account');
+
+    }
   };
 
   return (
@@ -21,24 +38,25 @@ const Signup = () => {
         <IonCard>
           <IonCardContent>
             <h2 className="ion-text-center mb-4">Sign Up</h2>
-            <form onSubmit={handleSubmit}>
+            <IonAlert isOpen={!!error} onDidDismiss={() => setError('')} message={error} buttons={['OK']} />
+            <form onSubmit={e => {e.preventDefault(); handleSignup();}}>
               <IonInput
                 type="email"
                 placeholder="Email"
-                ref={emailRef}
-                required
+                value={email}
+                onIonChange={e => setEmail(e.detail.value!)} required
               />
               <IonInput
                 type="password"
                 placeholder="Password"
-                ref={passwordRef}
-                required
+                value={password}
+                onIonChange={e => setPassword(e.detail.value!)} required
               />
               <IonInput
                 type="password"
                 placeholder="Password Confirmation"
-                ref={passwordConfirmRef}
-                required
+                value={passwordConfirm}
+                onIonChange={e => setPasswordConfirm(e.detail.value!)} required
               />
               <IonButton expand="block" type="submit" className="w-100">
                 Sign Up
