@@ -1,6 +1,6 @@
 
 // tänne tulee register logiikka
-import firebase from 'firebase/compat/app'
+import firebase from '../firebaseConfig'
 
 export async function registerUser(username:string, password:string) {
     const email = `${username}@gmail.com`
