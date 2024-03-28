@@ -1,6 +1,7 @@
 // firebaseConfig.tsx
 
 import firebase from 'firebase/compat/app'
+import 'firebase/compat/auth'
 
 const config = {
     apiKey: "AIzaSyDb2aXIyr37goo8usdN9B8_kz55GdokxZY",

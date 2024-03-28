@@ -23,8 +23,15 @@ const Home: React.FC = () => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        loginUser(username,password)
-        console.log('nappia painettu');
+        register(username,password)
+        // must have async functioni with await to get error message correctly
+        async function register(username:string, password:string) {
+            try {
+                await loginUser(username,password)
+            } catch(error:any) {
+                console.log("ei toimi errror:", error.message)
+            }
+        }
     };
 
     return (

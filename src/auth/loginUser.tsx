@@ -6,7 +6,7 @@ export async function loginUser(username:string, password:string) {
     try {
         const res = await firebase.auth().signInWithEmailAndPassword(email,password)
         console.log(res)
-    } catch(error:any) {
-        console.log('ei onnistunut error', error.message)
+    } catch(error) {
+        throw error
     }
 }
