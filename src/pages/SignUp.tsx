@@ -10,7 +10,7 @@ import {
     IonToast,
     IonLoading,
 } from '@ionic/react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { registerUser } from '../auth/registerUser';
 
 const Signup: React.FC = () => {
@@ -21,6 +21,7 @@ const Signup: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [showToast, setShowToast] = useState<boolean>(false);
     const [toastMessage, setToastMessage] = useState('');
+    const history = useHistory()
 
     const handleSignup = async () => {
         try {
@@ -36,7 +37,9 @@ const Signup: React.FC = () => {
             setPassword('');
             setEmail('');
 
-            setToastMessage('User Created');
+            history.push('/home')
+
+            setToastMessage('User Created, now login');
         } catch (error: any) {
             setErrorMessage(`Failed to create an account: ${error.message}`);
         }

@@ -15,6 +15,7 @@ import './Home.css';
 import { Link } from 'react-router-dom';
 import { loginUser } from '../auth/loginUser';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 // react fc must include the values used in the return section
 const Home: React.FC = () => {
@@ -23,17 +24,20 @@ const Home: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [showToast, setShowToast] = useState<boolean>(false);
     const [toastMessage, setToastMessage] = useState('');
+    const history = useHistory()
 
     const handleSubmit = async () => {
+        setLoading(true);
         try {
             await loginUser(username, password);
-            setLoading(true);
             setToastMessage('Login successful');
+            history.push('/mainPage')
+
         } catch (error: any) {
             setToastMessage(`Login failed: ${error.message}`);
         }
-        setLoading(false);
         setShowToast(true);
+        setLoading(false);
     };
 
     return (
