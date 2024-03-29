@@ -43,6 +43,8 @@ const Home: React.FC = () => {
     return (
         <IonPage>
             <IonContent className="ion-padding">
+            <div className="ion-text-center mb-4">Log In</div>
+            <div className="ion-text-center mb-5">Tähän jotain tekstiä.</div>
                 <IonLoading
                     message={'Logging in please wait...'}
                     duration={0}
@@ -57,16 +59,16 @@ const Home: React.FC = () => {
                                 handleSubmit();
                             }}
                         >
+                            <label>Email</label>
                             <IonInput
                                 type="email"
-                                placeholder="Email"
                                 onIonChange={(e: any) =>
                                     setUsername(e.target.value!)
                                 }
                             />
+                            <label>Password</label>
                             <IonInput
                                 type="password"
-                                placeholder="Password"
                                 onIonChange={(e: any) =>
                                     setPassword(e.target.value!)
                                 }

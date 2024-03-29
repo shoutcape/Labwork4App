@@ -9,9 +9,12 @@ import {
     IonAlert,
     IonToast,
     IonLoading,
+    IonIcon,
 } from '@ionic/react';
 import { Link, useHistory } from 'react-router-dom';
 import { registerUser } from '../auth/registerUser';
+import './Signup.css';
+import {arrowBack} from 'ionicons/icons'
 
 const Signup: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -50,6 +53,11 @@ const Signup: React.FC = () => {
     return (
         <IonPage>
             <IonContent className="ion-padding">
+            <div className='back-button' onClick={() => history.push('/home')}>
+                <IonIcon icon={arrowBack} size='large' color='medium'  />
+            </div>
+                <div className="ion-text-center mb-4">Welcome!</div>
+                <div className="ion-text-center mb-5">Sign up to get started.</div>
                 <IonLoading
                     message={'Creating user please wait...'}
                     duration={0}
@@ -57,7 +65,6 @@ const Signup: React.FC = () => {
                 ></IonLoading>
                 <IonCard>
                     <IonCardContent>
-                        <h2 className="ion-text-center mb-4">Sign Up</h2>
                         <IonAlert
                             isOpen={!!errorMessage}
                             onDidDismiss={() => setErrorMessage('')}
@@ -70,25 +77,25 @@ const Signup: React.FC = () => {
                                 handleSignup();
                             }}
                         >
+                            <label>Email</label>
                             <IonInput
                                 type="email"
-                                placeholder="Email"
                                 value={email}
                                 onIonChange={(e) => setEmail(e.detail.value!)}
                                 required
                             />
+                            <label>Password</label>
                             <IonInput
                                 type="password"
-                                placeholder="Password"
                                 value={password}
                                 onIonChange={(e) =>
                                     setPassword(e.detail.value!)
                                 }
                                 required
                             />
+                            <label>Password Confirmation</label>
                             <IonInput
                                 type="password"
-                                placeholder="Password Confirmation"
                                 value={passwordConfirm}
                                 onIonChange={(e) =>
                                     setPasswordConfirm(e.detail.value!)
