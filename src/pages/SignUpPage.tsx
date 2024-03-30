@@ -13,10 +13,10 @@ import {
 } from '@ionic/react';
 import { Link, useHistory } from 'react-router-dom';
 import { registerUser } from '../auth/registerUser';
-import './Signup.css';
+import './SignupAndLogin.css';
 import {arrowBack} from 'ionicons/icons'
 
-const Signup: React.FC = () => {
+const SignupPage: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
@@ -40,7 +40,7 @@ const Signup: React.FC = () => {
             setPassword('');
             setEmail('');
 
-            history.push('/home')
+            history.push('/login')
 
             setToastMessage('User Created, now login');
         } catch (error: any) {
@@ -53,7 +53,7 @@ const Signup: React.FC = () => {
     return (
         <IonPage>
             <IonContent className="ion-padding">
-            <div className='back-button' onClick={() => history.push('/home')}>
+            <div className='back-button' onClick={() => history.push('/login')}>
                 <IonIcon icon={arrowBack} size='large' color='medium'  />
             </div>
                 <div className="ion-text-center mb-4">Welcome!</div>
@@ -113,7 +113,7 @@ const Signup: React.FC = () => {
                     </IonCardContent>
                 </IonCard>
                 <div className="ion-text-center mt-2">
-                    Already have an account? <Link to="/home">Login</Link>
+                    Already have an account? <Link to="/login">Login</Link>
                 </div>
                 <IonToast
                     message={toastMessage}
@@ -126,4 +126,4 @@ const Signup: React.FC = () => {
     );
 };
 
-export default Signup;
+export default SignupPage;

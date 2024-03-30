@@ -1,23 +1,19 @@
-/* SignUp.css */
-
-
 ion-card {
     max-width: 400px;
     margin: 0 auto;
     border-radius: 15px;
-    --background:#ffffff
+    --background: #ffffff;
 }
-
 
 ion-content {
     --ion-background-color: #ffffff;
 }
 
-
 ion-input {
     margin-bottom: 20px;
     border-radius: 10px;
     border: 1px solid #818181;
+    text-indent: 5px;
 }
 
 ion-button {
@@ -25,20 +21,14 @@ ion-button {
     --border-radius: 8px;
 }
 
-
-
 ion-alert {
     --background: #ffffff;
     --border-radius: 8px;
 }
 
-
-
-.back-button:active, .back-button:focus, .back-button:hover{
+.back-button {
     cursor: pointer;
-
 }
-
 
 .mb-4 {
     margin-bottom: 1.5rem;
