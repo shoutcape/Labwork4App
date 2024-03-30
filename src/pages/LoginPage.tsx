@@ -11,14 +11,14 @@ import {
     IonLoading,
     IonToast,
 } from '@ionic/react';
-import './Home.css';
+import './SignupAndLogin.css';
 import { Link } from 'react-router-dom';
 import { loginUser } from '../auth/loginUser';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 // react fc must include the values used in the return section
-const Home: React.FC = () => {
+const LoginPage: React.FC = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState<boolean>(false);
@@ -97,4 +97,4 @@ const Home: React.FC = () => {
     );
 };
 
-export default Home;
+export default LoginPage;
