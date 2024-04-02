@@ -31,7 +31,7 @@ const LoginPage: React.FC = () => {
         try {
             await loginUser(username, password);
             setToastMessage('Login successful');
-            history.push('/mainPage')
+            history.push('/mainpage')
 
         } catch (error: any) {
             setToastMessage(`Login failed: ${error.message}`);
