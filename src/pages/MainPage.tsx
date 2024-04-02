@@ -13,6 +13,7 @@ import './MainPage.css';
 import React, { useEffect, useState } from 'react';
 import firebase from '../firebaseConfig';
 import { Redirect } from 'react-router';
+import { useAuth } from '../auth/useAuth';
 
 const defaultUser = 'User';
 
@@ -28,32 +29,13 @@ const MainPage: React.FC = () => {
     const [newPostContent, setNewPostContent] = useState('');
     const [newComment, setNewComment] = useState('');
 
-    const [loggedIn, setLoggedIn] = useState(false);
-    // start loading by default to wait for the authentication check
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        // on Firebase authStateChange get the authneticated user information
-        const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-            // user is logged in
-            if (user) {
-                setLoggedIn(true);
-            } else {
-                // user is not logged in
-                setLoggedIn(false);
-            }
-            // end loading
-            setLoading(false);
-        });
-
-        // end the useEffect function to avoid memory leaks and unwanted behaviour
-        return () => unsubscribe();
-    }, []);
-
+    // useAuth checks if user is logged in
+    const { loggedIn, loading } = useAuth()
+    // while loading returns blank page
     if (loading) {
         return <IonPage></IonPage>;
     }
-
+    // if not logged in return to login screen
     if (!loggedIn) {
         return <Redirect to="/login" />;
     }
