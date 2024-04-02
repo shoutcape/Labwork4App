@@ -33,9 +33,7 @@ Start the development server:
 
 Screenshots
 
-![Login](https://github.com/shoutcape/Labwork4App/assets/112542569/36a82aa7-ce96-4b55-aeae-f9ecd9bfbb50) ![Signup](https://github.com/shoutcape/Labwork4App/assets/112542569/615a6165-e7b0-4711-9bbf-b136319cdb47)
 
-![Mainpage](https://github.com/shoutcape/Labwork4App/assets/112542569/1031e0c5-5cf9-4ef2-bf5f-f08553c3670d)
 
 
 
