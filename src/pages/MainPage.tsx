@@ -30,7 +30,7 @@ const MainPage: React.FC = () => {
     const [newComment, setNewComment] = useState('');
 
     // useAuth checks if user is logged in
-    const { loggedIn, loading } = useAuth()
+    const { loggedIn, loading } = useAuth();
     // while loading returns blank page
     if (loading) {
         return <IonPage></IonPage>;
