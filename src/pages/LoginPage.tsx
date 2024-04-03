@@ -42,9 +42,9 @@ const LoginPage: React.FC = () => {
 
     return (
         <IonPage>
-            <IonContent className="ion-padding">
-            <div className="ion-text-center mb-4">Log In</div>
-            <div className="ion-text-center mb-5">Tähän jotain tekstiä.</div>
+            <IonContent id="logincontent" className="ion-padding">
+            <div className="ion-text-center mb-4">Welcome!</div>
+            <div className="ion-text-center mb-5">Log in to the forum</div>
                 <IonLoading
                     message={'Logging in please wait...'}
                     duration={0}
@@ -52,7 +52,6 @@ const LoginPage: React.FC = () => {
                 ></IonLoading>
                 <IonCard>
                     <IonCardContent>
-                        <h2 className="ion-text-center mb-4">Login</h2>
                         <form
                             onSubmit={(e) => {
                                 e.preventDefault();
