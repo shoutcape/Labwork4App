@@ -48,3 +48,7 @@ ion-alert {
     margin-top: 1rem;
     color: gray;
 }
+
+#logincontent {
+    --padding-top: 52px;
+}
